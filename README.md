@@ -12,3 +12,4 @@ Page de description de ma chaine twitch avec différents liens pour mes réseaux
 ------les ressources:
           -un dossier images avec les images à utiliser
           -la charte graphique (couleurs et typo) sera précisée ici
+             colors to use : #49F2C2 , #8C8B88 , #F2EFE9 , #590202 , #0D0D0D
