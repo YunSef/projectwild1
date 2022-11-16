@@ -1,0 +1,17 @@
+header {
+    height: 80px;
+}
+
+.menu__logo {
+    float: left;
+    height: 80px;
+    width: 80px;
+    border-radius: 35px;
+    
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    
+}
