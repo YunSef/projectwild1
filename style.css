@@ -103,13 +103,16 @@ hr {
     padding: var(--space)
 }
 
+.visible{
+    display: flex;
+}
+
 .menu__mobile a {
     margin-bottom: calc(var(--space)*2);
 }
 
 .menu__desktop {
-    display: none;
-    justify-content: space-around; 
+    display: none; 
 }
 
 .main {
@@ -166,7 +169,7 @@ hr {
 
 }
 .social__link{
-    width: 200px;
+    width: 100px;
 }
 
 .social img {
@@ -194,10 +197,7 @@ footer {
     position: sticky;
     bottom: 0;
 }
-.visible{
-    display: flex;
 
-}
 @media (min-width: 768px) {
     .menu{
         width: 100%;
@@ -208,7 +208,7 @@ footer {
     .menu__desktop{
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
     }
     
 }
