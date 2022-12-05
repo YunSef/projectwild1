@@ -35,6 +35,11 @@ h3 {
     font-size: 120%;
     font-weight: bold;
 }
+
+h6 {
+    text-align: center;
+    font-style: italic;
+}
 /*header position and style*/
 
 header {
@@ -245,6 +250,7 @@ h1 {
 .meter_gauge {
     height: 100%;
     padding: 1px;
+    background-color: red;
 }
 
 .games {
