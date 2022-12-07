@@ -2,7 +2,7 @@
 
 const menuBurger = document.querySelector('.menu__burger');
 const menuMobile = document.querySelector('.menu__mobile');
-menuBurger.addEventListener('click', function(event){
+menuBurger.addEventListener('click', function(){
     menuMobile.classList.toggle('visible');
 })
 
@@ -10,46 +10,78 @@ menuBurger.addEventListener('click', function(event){
 
 /*const gaugeArray = ["meter_gauge1", "meter_gauge2", "meter_gauge3", "meter_gauge4"];
 const gameImgArray = ["game_img1", "game_img2", "game_img3", "game_img4"];*/
-const game1 = document.querySelector('#game_img1');
-const game2 = document.querySelector("#game_img2");
-const game3 = document.querySelector("#game_img3");
-const game4 = document.querySelector("#game_img4");
+const meter = {
+    countFirstGame: 0,
+    countSecondGame: 0,
+    countThirdGame: 0,
+    countFourthGame: 0,
+    countTotal: 0,
+    percentGame1: 0,
+    percentGame2: 0,
+    percentGame3: 0,
+    percentGame4: 0,
 
-const meterGauge1 = document.querySelector("#meter_gauge1");
-const meterGauge2 = document.querySelector("#meter_gauge2");
-const meterGauge3 = document.querySelector("#meter_gauge3");
-const meterGauge4 = document.querySelector("#meter_gauge4");
-function meter (){
-let gameCount1 = 0;
-let gameCount2 = 0;
-let gameCount3 = 0;
-let gameCount4 = 0;
-const gameCountTotal = gameCount1 + gameCount2 + gameCount3 + gameCount4;
+//fonction de récuperation des id des div pour ajuster les width
+    init: function (){
+        const gauge1 = document.getElementById('meter_gauge1');
+        const gauge2 = document.getElementById('meter_gauge2');
+        const gauge3 = document.getElementById('meter_gauge3');
+        const gauge4 = document.getElementById('meter_gauge4');
+
+        
+        gauge1.style.width = `${meter.percentGame1}%`;
+        gauge2.style.width = `${meter.percentGame2}%`;
+        gauge3.style.width = `${meter.percentGame3}%`;
+        gauge4.style.width = `${meter.percentGame4}%`;
+
+        },
+
+//fonction incrementation des variables en fonction des clicks
+    clickMeter: () => {
+        const game1 = document.getElementById('game_img1');
+        const game2 = document.getElementById('game_img2');
+        const game3 = document.getElementById('game_img3');
+        const game4 = document.getElementById('game_img4');
+        
+        game1.addEventListener('click', function(){
+            meter.countFirstGame++;
+            meter.countTotal++;
+            
+            meter.percent();     
+        });
+        game2.addEventListener('click', function(){
+            
+            meter.countSecondGame++;
+            meter.countTotal++;
+            meter.percent(); 
+        });
+        game3.addEventListener('click', function(){
+            
+            meter.countThirdGame++;
+            meter.countTotal++;
+            meter.percent(); 
+        });
+        game4.addEventListener('click', function(){            
+            meter.countFourthGame++;
+            meter.countTotal++;
+            meter.percent(); 
+        });
+        
+
+    
+
+    },
+//methode de calcul du pourcentage pour chaque valeur
+    percent: function(){
+        meter.percentGame1 = parseInt(meter.countFirstGame * 100 / meter.countTotal);
+        meter.percentGame2 = parseInt(meter.countSecondGame * 100 / meter.countTotal);
+        meter.percentGame3 = parseInt(meter.countThirdGame * 100 / meter.countTotal);
+        meter.percentGame4 = parseInt(meter.countFourthGame * 100 / meter.countTotal);
+
+        meter.init();
+    }
 
 
-game1.addEventListener('click', function(){
-    gameCount1++;
-    return gameCount1;
-});
-game2.addEventListener('click', function(){
-    gameCount2++;
-    return gameCount2;
-});
-game3.addEventListener('click', function (){
-    return gameCount3;
-});
-game4.addEventListener('click', function(){
-    gameCount4++;
-    return gameCount4;
-});
-console.log(gameCount1);
-console.log(gameCount2);
-console.log(gameCount3);
-console.log(gameCount4);
-console.log(gameCountTotal);
-
-meterGauge1.style.width = `${parseInt(gameCount1) / 100 * gameCountTotal}%`;
-meterGauge2.style.width = `${parseInt(gameCount2) / 100 * gameCountTotal}%`;
-meterGauge3.style.width = `${parseInt(gameCount3) / 100 * gameCountTotal}%`;
-meterGauge4.style.width = `${parseInt(gameCount4) / 100 * gameCountTotal}%`;
 }
+
+meter.clickMeter();
