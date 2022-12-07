@@ -226,9 +226,7 @@ h1 {
     align-items: center;
     gap: 30px;
 }
-/* .sondage h2 {
-    font-size: 200%;
-} */
+
 .meter_container {
     width: 80%;
     display: flex;
@@ -247,7 +245,7 @@ h1 {
 
 .meter_border{
     border: 2px solid #590202;
-    width: 100%;
+    width: 50%;
     height: 1rem;
     padding: 2px;
 }
