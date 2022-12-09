@@ -6,10 +6,9 @@ menuBurger.addEventListener('click', function(){
     menuMobile.classList.toggle('visible');
 })
 
-/*function meter*/
+/*objet meter*/
 
-/*const gaugeArray = ["meter_gauge1", "meter_gauge2", "meter_gauge3", "meter_gauge4"];
-const gameImgArray = ["game_img1", "game_img2", "game_img3", "game_img4"];*/
+
 const meter = {
     countFirstGame: 0,
     countSecondGame: 0,
@@ -21,7 +20,7 @@ const meter = {
     percentGame3: 0,
     percentGame4: 0,
 
-//fonction de récuperation des id des div pour ajuster les width
+//methode de récuperation des id des div et mise à jour des valeurs
     init: function (){
         const gauge1 = document.getElementById('meter_gauge1');
         const gauge2 = document.getElementById('meter_gauge2');
@@ -36,7 +35,7 @@ const meter = {
 
         },
 
-//fonction incrementation des variables en fonction des clicks
+//methode incrementation des variables en fonction des clicks
     clickMeter: () => {
         const game1 = document.getElementById('game_img1');
         const game2 = document.getElementById('game_img2');
@@ -85,3 +84,22 @@ const meter = {
 }
 
 meter.clickMeter();
+
+//fonction d'animation photo
+
+const photoArray = ["./assets/images/imagesYun/imageYunsef1.jpg","./assets/images/imagesYun/imageYunsef2.jpg","./assets/images/imagesYun/imageYunsef3.jpg",
+"./assets/images/imagesYun/imageYunsef4.jpg",
+"./assets/images/imagesYun/imageYunsef5.jpg"];
+const myImg = document.getElementById('yun_face');
+let i = 0;
+changeImg = function (){
+    if(i<photoArray.length){
+        myImg.src = photoArray[i];
+        i++;
+    }else{
+        i = 0;
+        myImg.src = photoArray[i];
+        i++;
+    }
+};
+setInterval(changeImg, 500);
